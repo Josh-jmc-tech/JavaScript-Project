@@ -39,3 +39,14 @@ function negation_Operator() {
     document.write(x);
 
     window.alert(Math.random());
+
+    function Dictionary() {
+        var Animal = {
+            Species: "Cat",
+            Color: "Orange",
+            Breed: "Senegalese",
+            Age:2,
+            Sound:"Meow!",
+        };
+        document.getElementById("Dictionary").innerHTML = Animal.Color;
+    }
