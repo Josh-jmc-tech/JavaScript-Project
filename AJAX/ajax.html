@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX OnReadyStateChange Demo</title>
+    <style>
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .loading {
+            font-style: italic;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h2>Get The Latest Content:</h2>
+        <div id="content">
+            <input type="button" class="button" value="Get Content" id="btn_content" onclick="getContent();"/>
+        </div>
+    </div>
+
+    <script>
+        function getContent() {
+            var ajax = new XMLHttpRequest();
+            var contentDiv = document.getElementById('content');
+
+            contentDiv.innerHTML = "<p class='loading'>Loading content...</p>";
+
+            ajax.onreadystatechange = function () {
+                if (ajax.readyState === 4) {
+                    if (ajax.status === 200) {
+                        contentDiv.innerHTML = ajax.responseText;
+                    } else {
+                        contentDiv.innerHTML = "<p style='color:red;'>Error loading content. Please try again.</p>";
+                    }
+                }
+            };
+
+            ajax.open('GET', 'content.html', true);
+            ajax.send();
+        }
+    </script>
+</body>
+</html>
