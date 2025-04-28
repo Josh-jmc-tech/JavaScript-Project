@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Event and Effect Demo</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: lightcoral;
+            margin-top: 20px;
+            line-height: 200px;
+            text-align: center;
+            color: white;
+            font-size: 18px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Click the Box to Hide it (Event + Effect)</h2>
+    <div id="box">Click Me!</div>
+
+    <script>
+        // Event: Click
+        $(document).ready(function() {
+            $('#box').click(function() {
+                // Effect: Slide Up
+                $(this).slideUp(1000);
+            });
+        });
+    </script>
+</body>
+</html>
